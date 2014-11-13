@@ -1,0 +1,32 @@
+<div class="container">
+
+  <form id='event_form' action='/users' method='POST'>
+    <h2>What's going down?</h2>
+    <p><input type='text' name='occasion' style='width:300px' placeholder="what's the occasion? lunch? dinner?"></p>
+    <p><input type='submit' value='set event'></p>
+  </form>
+
+  <form id='user_form' action='/users' method='POST'>
+    <h2>Who's in?</h2>
+    <p><input type='text' name='name' style='width:300px' placeholder="put 'em here, one by one"></p>
+    <p><input type='submit' value='add user'></p>
+  </form>
+
+  <div id='the_users'>
+  </div>
+
+
+
+
+
+
+  <div id="user_template" style="display: none;">
+    <div class="user">
+      <h3>Username</h3>
+      <a href="#" class="delete">Remove</a>
+    </div>
+  </div>
+
+  <button>NEXT</button>
+
+</div>
