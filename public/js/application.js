@@ -14,7 +14,7 @@ function bindEvents(){
   // when a user gets added to the mix
   $('#event_form').on('submit', addOccasion);
   $('#user_form').on('submit', addUser);
-  $('#add_option').on('submit', addOption)
+  $('#add_option').on('submit', addOption);
 
   // gotta use event delegation for removing users
   // $('.the_users').on('click', '#delete', removeUser)
@@ -32,7 +32,7 @@ function addOccasion(e){
     type: 'POST',
     data: formData
   }).done(function(response){
-    $("<h2 class='the_event' id='" + response.id + "'>ok, you're planning for " + response.occasion + "</h2>").insertAfter($('#event_form'));
+    $("<h2 class='the_event' id='" + response.id + "'>you're planning for <span id='highlight_occasion'>" + response.occasion + "</span></h2>").insertAfter($('#event_form'));
     $('#event_form').remove();
   }).fail(console.log('addOccasion failed'));
 }
@@ -40,12 +40,14 @@ function addOccasion(e){
 function addUser(e){
   e.preventDefault();
   var eventId = parseInt( $(".the_event").attr('id'));
+  var name = $('#user_input').val();
   $.ajax({
     url: '/users',
     type: 'POST',
-    data: {name: name}
+    data: {name: name, id: eventId}
   }).done(function(response){
-    $('.the_users').append(buildUser(response.user))
+    $('#the_users').append(buildUser(response));
+    $('#user_input').val('');
   }).fail(console.log('addUser failed'));
 }
 

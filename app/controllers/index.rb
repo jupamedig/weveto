@@ -22,10 +22,11 @@ end
 post '/users' do
   content_type :json
 
-  # event = Event.find(params[:id])
+  id = (params[:id]).to_i
+  event = Event.find(id)
   user = User.new(name: params[:name])
   if user.save
-    # event.users << user
+    event.users << user
     user.to_json
   end
 end

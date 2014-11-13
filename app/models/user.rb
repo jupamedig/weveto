@@ -3,6 +3,6 @@ class User < ActiveRecord::Base
   validates :name, presence: true
   validates :name, uniqueness: true
 
-  has_many :events_users
-  has_many :events, through: :events_users
+  has_many :options
+  belongs_to :event
 end
