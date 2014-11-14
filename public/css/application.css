@@ -1,0 +1,35 @@
+header {
+  background-color: #337ab7;
+  color: white;
+  padding: .3em;
+  margin-bottom: 2em;
+}
+
+header h3 {
+  margin-left: 3em;
+}
+
+.logo_veto {
+  color: #d9534f;
+}
+
+.user_form {
+  border: 1px solid black;
+}
+
+#winners {
+  background-color: #d9534f;
+  color: white;
+  margin-top: 2em;
+  border-radius: .5em;
+}
+
+#winners {
+  padding: 2em;
+}
+
+.section-header {
+  color: #d9534f;
+}
+
+
