@@ -1,19 +1,17 @@
-<h2>Add Options</h2>
-<h5>[maybe 2 per person?]</h5>
 
-<form>
+<form id='search_form'>
+  <h2>Add Movie Options</h2>
   <!-- Search: <input type='search' name=''> -->
-  <input type='text' style='width:300px' placeholder="whatcha in the mood for?">
-  <input type='submit' id='add_option' value='add'>
+  <input type='text' style='width:300px' id='search_input' placeholder="search for movies by title">
+  <input type='submit' id='search' value='SEARCH'>
 </form>
 
 <div id='the_options'>
 </div>
 
 
-
 <!-- use event -->
-<div id="user_template" style="display: none;">
+<div id="option_template" style="display: none;">
   <div class="option">
     <h3>Option</h3>
     <a href="#" class="delete">Remove</a>

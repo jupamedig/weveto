@@ -15,10 +15,10 @@ get '/veto_options' do
   erb :veto
 end
 
-post '/occasion' do
+post '/events' do
   content_type :json
 
-  event = Event.new(params)
+  event = Event.new()
   if event.save
     event.to_json
   end
@@ -29,9 +29,8 @@ post '/users' do
 
   id = (params[:id]).to_i
   event = Event.find(id)
-  user = User.new(name: params[:name])
+  user = event.users.new(name: params[:name])
   if user.save
-    event.users << user
     user.to_json
   end
 end
