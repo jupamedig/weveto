@@ -2,11 +2,7 @@ get '/' do
   erb :index
 end
 
-get '/add_options' do
-  p '*'*30
-  p params
-  p '*'*30
-
+get '/options' do
   @event = Event.find(params[:event_id])
   erb :add_options
 end
@@ -40,3 +36,10 @@ delete '/users' do
   user.destroy
 end
 
+get '/veto' do
+  'you did it'
+end
+
+delete '/movie' do
+  'remove that ish'
+end

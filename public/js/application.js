@@ -7,9 +7,10 @@ function bindEvents(){
   // when a user gets added to the mix
   $('#start_form').on('submit', addEvent);
   $('#user_form').on('submit', addUser);
-  $('#search_form').on('submit', search);
-  $('#the_users').on('click', '.delete', deleteUser);
-
+  $('.the_users').on('click', '.delete', deleteUser);
+  $('#search_form').on('submit', addOption);
+  $('#start_veto').on('submit', startVeto);
+  $('#the_options').on('click', '.delete', veto);
 }
 
 function addEvent(e){
@@ -33,7 +34,7 @@ function addUser(e){
     type: 'POST',
     data: {name: name, id: eventId}
   }).done(function(response){
-    $('#the_users').append(buildUser(response));
+    $('.the_users').append(buildUser(response));
     $('#user_input').val('');
   }).fail(console.log('addUser failed'));
 }

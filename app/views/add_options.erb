@@ -1,9 +1,18 @@
+<div class='the_users'>
+<% @event.users.shuffle.each do |user| %>
+  <h3><%= user.name %></h3>
+<% end %>
+</div>
 
 <form id='search_form'>
   <h2>Add Movie Options</h2>
   <!-- Search: <input type='search' name=''> -->
   <input type='text' style='width:300px' id='search_input' placeholder="search for movies by title">
   <input type='submit' id='search' value='SEARCH'>
+</form>
+
+<form id='start_veto'>
+  <input type='submit' value='START VETOING'>
 </form>
 
 <div id='the_options'>
@@ -13,7 +22,9 @@
 <!-- use event -->
 <div id="option_template" style="display: none;">
   <div class="option">
+    <a href="#" class="delete" style='display:none'>VETO</a>
     <h3>Option</h3>
-    <a href="#" class="delete">Remove</a>
   </div>
 </div>
+
+
