@@ -36,6 +36,7 @@ function veto(e){
     type: 'DELETE',
   }).done(function(response){
     optionDiv.remove();
+    checkForLast();
   }).fail(console.log('deleteUser failed'))
 }
 
@@ -49,3 +50,12 @@ function buildOption(movie){
   return $option;
 }
 
+var checkForLast = function(){
+  if ($('.option').length === 2) {
+    $('.delete').click(function(e){
+      e.preventDefault();
+    });
+    $('.delete').css('display','none');
+    $('.option').prepend('<p>WINNER</p>')
+  }
+}
