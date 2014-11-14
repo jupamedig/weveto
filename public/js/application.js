@@ -15,13 +15,12 @@ function bindEvents(){
   $('#event_form').on('submit', addOccasion);
   $('#user_form').on('submit', addUser);
   $('#add_option').on('submit', addOption);
+  $('#the_users').on('click', '.delete', deleteUser);
 
   // gotta use event delegation for removing users
   // $('.the_users').on('click', '#delete', removeUser)
 
   // gotta use event delegation for removing options
-
-  // if everything's not completed on homepage, prevent user from moving on to next page
 }
 
 function addOccasion(e){
@@ -32,7 +31,9 @@ function addOccasion(e){
     type: 'POST',
     data: formData
   }).done(function(response){
-    $("<h2 class='the_event' id='" + response.id + "'>you're planning for <span id='highlight_occasion'>" + response.occasion + "</span></h2>").insertAfter($('#event_form'));
+    $("<h2 class='the_event'>you're planning for <span id='highlight_occasion'>" + response.occasion + "</span></h2>").insertAfter($('#event_form'));
+    $('.the_event').attr('id', response.id);
+    $('#next').attr('value', response.id);
     $('#event_form').remove();
   }).fail(console.log('addOccasion failed'));
 }
@@ -51,9 +52,21 @@ function addUser(e){
   }).fail(console.log('addUser failed'));
 }
 
+function deleteUser(e){
+  e.preventDefault();
+  userDiv = $(e.target).closest('.user');
+  userId = userDiv.find('h3').attr('user_id');
+  userId = parseInt(userId);
+  $.ajax({
+    url: '/users',
+    type: 'DELETE',
+    data: {id: userId}
+  }).done(function(){
+    userDiv.remove();
+  }).fail(console.log('deleteUser failed'))
+}
+
 function addOption(){}
-
-
 
 function buildUser(user){
   var userTemplate = $.trim($('#user_template').html());

@@ -3,6 +3,11 @@ get '/' do
 end
 
 get '/add_options' do
+  p '*'*30
+  p params
+  p '*'*30
+
+  @event = Event.find(params[:event_id])
   erb :add_options
 end
 
@@ -31,4 +36,8 @@ post '/users' do
   end
 end
 
+delete '/users' do
+  user = User.find(params[:id])
+  user.destroy
+end
 
