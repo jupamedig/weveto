@@ -1,4 +1,5 @@
 get '/' do
+  @winners = Winner.all
   erb :index
 end
 
@@ -42,4 +43,9 @@ end
 
 delete '/movie' do
   'remove that ish'
+end
+
+post '/winner' do
+  Winner.create(title: params[:title])
+  redirect '/'
 end

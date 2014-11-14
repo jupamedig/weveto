@@ -44,6 +44,7 @@ function buildOption(movie){
   var optionTemplate = $.trim($('#option_template').html());
   var $option = $(optionTemplate);
   $option.find('h3').text(movie.Title);
+  $option.find('h3').attr('id','legit');
   $option.find('h3').closest('div').append("<h4>" + movie.Plot + "</h4>");
   $option.find('h3').closest('div').append("<h4>" + movie.Runtime + "</h4>");
   $option.find('h3').closest('div').append("<img src=" + movie.Poster + "/>");
@@ -56,6 +57,13 @@ var checkForLast = function(){
       e.preventDefault();
     });
     $('.delete').css('display','none');
-    $('.option').prepend('<p>WINNER</p>')
+    $('.the_users').css('display','none');
+    $('.option').prepend('<p>WINNER</p>');
+    var title = $('#legit').text();
+    $('#home').val(title);
+    $('#home_form').css('display','block');
+    alert("y'all chose " + title);
   }
 }
+
+

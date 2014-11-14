@@ -22,6 +22,7 @@ function addEvent(e){
     $('#next').attr('value', response.id);
     $('#start_form').remove();
     $('#user_form').css('display','block');
+    $('#next_form').css('display','block');
   }).fail(console.log('addEvent failed'));
 }
 

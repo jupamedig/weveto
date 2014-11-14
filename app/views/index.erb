@@ -6,7 +6,7 @@
 
   <form id='user_form' style="display:none" action='/users' method='POST'>
     <h2>Who's watching?</h2>
-    <p><input type='text' id='user_input' name='name' style='width:300px' placeholder="put 'em here, one by one"></p>
+    <p><input type='text' id='user_input' name='name' style='width:300px' placeholder="put their names here, one by one"></p>
     <p><input type='submit' value='add user'></p>
   </form>
 
@@ -20,9 +20,16 @@
     </div>
   </div>
 
-  <form id='next_form' action='/options' method='get'>
+  <form id='next_form' style="display:none" action='/options' method='get'>
     <input id='next' type='hidden' name='event_id'>
-    <input type='submit' value='NEXT'>
+    <input type='submit' value='ADD OPTIONS'>
   </form>
+
+  <div id='winners'>
+    <h4>Today's Winning Movies:</h4>
+    <% @winners.reverse.each do |winner| %>
+      <p><%= winner.title %></p>
+    <% end %>
+  </div>
 
 </div>
