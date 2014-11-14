@@ -43,7 +43,7 @@ function addUser(e){
 function deleteUser(e){
   e.preventDefault();
   userDiv = $(e.target).closest('.user');
-  userId = userDiv.find('h3').attr('user_id');
+  userId = userDiv.find('h4').attr('user_id');
   userId = parseInt(userId);
   $.ajax({
     url: '/users',
@@ -57,8 +57,8 @@ function deleteUser(e){
 function buildUser(user){
   var userTemplate = $.trim($('#user_template').html());
   var $user = $(userTemplate);
-  $user.find('h3').text(user.name);
-  $user.find('h3').attr('user_id', user.id);
+  $user.find('h4').text(user.name);
+  $user.find('h4').attr('user_id', user.id);
   return $user;
 }
 

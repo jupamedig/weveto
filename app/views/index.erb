@@ -1,13 +1,13 @@
 <div class="container">
 
   <form id='start_form' action='/events' method='POST'>
-    <input type='submit' value='START'>
+    <input class="btn btn-primary" type='submit' value='START'>
   </form>
 
   <form id='user_form' style="display:none" action='/users' method='POST'>
-    <h2>Who's watching?</h2>
+    <h3>Who's watching?</h3>
     <p><input type='text' id='user_input' name='name' style='width:300px' placeholder="put their names here, one by one"></p>
-    <p><input type='submit' value='add user'></p>
+    <p><input class="btn btn-info" type='submit' value='add user'></p>
   </form>
 
   <div class='the_users'>
@@ -15,14 +15,14 @@
 
   <div id="user_template" style="display: none;">
     <div class="user">
-      <h3>Username</h3>
+      <h4>Username</h4>
       <a href="#" class="delete">Remove</a>
     </div>
   </div>
 
   <form id='next_form' style="display:none" action='/options' method='get'>
     <input id='next' type='hidden' name='event_id'>
-    <input type='submit' value='ADD OPTIONS'>
+    <input class="btn btn-primary" type='submit' value='ADD OPTIONS'>
   </form>
 
   <div id='winners'>

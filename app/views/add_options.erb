@@ -4,15 +4,24 @@
 <% end %>
 </div>
 
-<form id='search_form'>
-  <h2>Add Movie Options</h2>
-  <!-- Search: <input type='search' name=''> -->
-  <input type='text' style='width:300px' id='search_input' placeholder="search for movies by title">
-  <input type='submit' id='search' value='SEARCH'>
+
+<form class="form-horizontal" role="form" id='search_form'>
+  <h3>Add movie options</h3>
+  <div class="form-group">
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id='search_input' placeholder="search for movies by title">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-info" id='search'>SEARCH</button>
+    </div>
+  </div>
 </form>
 
+
 <form id='start_veto'>
-  <input type='submit' value='START VETOING'>
+  <input class="btn btn-danger" type='submit' value='START VETOING'>
 </form>
 
 <div id='the_options'>
@@ -28,6 +37,6 @@
 
 <form id='home_form' style='display:none' action='/winner' method='post'>
   <input id='home' type='hidden' name='title' value=''>
-  <input type='submit' value='HOME'>
+  <input class="btn btn-primary" type='submit' value='HOME'>
 </form>
 
